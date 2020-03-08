@@ -9,7 +9,8 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "rxjs": "^6.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +22,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test --watchAll=false"
     }
   },
   "lint-staged": {

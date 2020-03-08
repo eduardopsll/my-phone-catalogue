@@ -1,0 +1,21 @@
+@import "../../styles/base";
+
+.spinner {
+  animation: loop 0.5s linear infinite;
+  border: pixel-to-rem(5) solid rgba($primary-color, 0.5);
+  border-radius: 50%;
+  border-top: pixel-to-rem(5) solid $secondary-color;
+  height: pixel-to-rem(40);
+  opacity: 0.5;
+  width: pixel-to-rem(40);
+}
+
+@keyframes loop {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
