@@ -1,0 +1,3 @@
+export const FETCH_PHONES = "FETCH_PHONES";
+export const FETCH_PHONES_SUCESS = "FETCH_PHONES_SUCESS";
+export const ADD_PHONE_LIST = "ADD_PHONE_LIST";

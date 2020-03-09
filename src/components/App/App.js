@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { take } from "rxjs/operators";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-import { Http } from "../../utils";
 import { PhoneList, Spinner } from "../index";
+import { isFetchingSelector } from "../../redux/selectors";
+import { fetchPhones } from "../../redux/actions";
 
 import "./App.scss";
 
-function App() {
-  const [isAppLoading, setIsAppLoading] = useState(true);
-
+export function App({ isFetchingPhones, fetchPhones }) {
   useEffect(() => {
-    Http.getPhones$.pipe(take(1)).subscribe(() => {
-      setIsAppLoading(() => false);
-    });
-  });
+    fetchPhones();
+  }, []);
 
   return (
     <div className="app">
@@ -23,10 +20,18 @@ function App() {
         </h1>
       </header>
       <section className="app__container">
-        {isAppLoading ? <Spinner></Spinner> : <PhoneList></PhoneList>}
+        {isFetchingPhones ? <Spinner></Spinner> : <PhoneList></PhoneList>}
       </section>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isFetchingPhones: isFetchingSelector(state)
+  };
+};
+
+const mapDispatchToProps = { fetchPhones };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -9,7 +9,11 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-observable": "^1.2.0",
     "rxjs": "^6.5.4"
   },
   "scripts": {
@@ -58,6 +62,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "prettier": "1.19.1",
+    "rxjs-marbles": "^5.0.4",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0"
