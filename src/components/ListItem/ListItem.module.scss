@@ -1,0 +1,52 @@
+@import "../../styles/base";
+
+.list-item {
+  align-items: center;
+  border-bottom: 1px solid $secondary-color;
+  color: $primary-color;
+  cursor: pointer;
+  display: flex;
+  font-size: $font-size-m;
+  font-weight: 700;
+  justify-content: space-between;
+
+  &:last-of-type {
+    border: none;
+  }
+
+  &:hover {
+    border-top: 2px solid $secondary-color;
+    box-shadow: 0 6px 4px -4px rgba($primary-color, 0.75);
+  }
+
+  &__info-wrapper {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    padding: $space-3 $space-4;
+  }
+
+  &__phone-icon {
+    height: pixel-to-rem(40);
+    width: pixel-to-rem(40);
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: $space-4;
+  }
+
+  &__text-subtitle {
+    color: $secondary-color;
+    font-size: $font-size-s;
+    font-weight: normal;
+  }
+
+  &__chevron-icon {
+    flex-grow: 0;
+    height: pixel-to-rem(25);
+    width: pixel-to-rem(25);
+  }
+}

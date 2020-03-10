@@ -8,7 +8,7 @@ $base-size: 16;
   @return ($target / $context) * 1em;
 }
 
-$header-height: pixel-to-rem(50);
+$header-height: pixel-to-rem(54);
 $space: pixel-to-rem(4);
 $space-2: $space * 2;
 $space-3: $space * 3;

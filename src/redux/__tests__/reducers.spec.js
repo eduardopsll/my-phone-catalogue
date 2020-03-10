@@ -1,6 +1,8 @@
 import reducer from "../reducers";
 import { fetchPhones, fetchPhonesSuccess } from "../actions";
 
+import phonesMock from "../../mocks/phones.json";
+
 let initialState;
 
 beforeEach(() => {
@@ -17,12 +19,11 @@ describe("Fetching phones", () => {
   });
 
   it("Succesful fetch", () => {
-    const phoneListMock = ["phone1", "phone2"];
     initialState.isFetchingPhones = true;
 
-    const state = reducer(initialState, fetchPhonesSuccess(phoneListMock));
+    const state = reducer(initialState, fetchPhonesSuccess(phonesMock));
 
     expect(state.isFetchingPhones).toEqual(false);
-    expect(state.phoneList).toEqual(phoneListMock);
+    expect(state.phoneList).toEqual(phonesMock);
   });
 });
