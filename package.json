@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "yarn test --watchAll=false",
     "eject": "react-scripts eject",
     "stylelint": "stylelint ./**/**/*.scss",
     "commit": "git-cz"
@@ -27,7 +28,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test --watchAll=false"
+      "pre-push": "yarn test:all"
     }
   },
   "lint-staged": {
