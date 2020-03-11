@@ -24,12 +24,9 @@ describe("App", () => {
     ReactDOM.render(<App />, div);
   });
 
-  it("should dispatch action to fetch phone list", done => {
-    const div = document.createElement("div");
-    ReactDOM.render(<App />, div, () => {
-      expect(mockDispatch).toHaveBeenCalledWith(fetchPhones());
-      done();
-    });
+  it("should dispatch action to fetch phone list", () => {
+    render(<App />);
+    expect(mockDispatch).toHaveBeenCalledWith(fetchPhones());
   });
 
   describe("Fetching phones", () => {
