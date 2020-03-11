@@ -1,0 +1,104 @@
+@import "../../styles/base";
+
+.card {
+  animation: displayVerticalCard 0.5s ease-in;
+  background-color: $light-base;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &__image {
+    max-height: pixel-to-rem(300);
+  }
+
+  &__close {
+    cursor: pointer;
+    height: pixel-to-rem(30);
+    position: absolute;
+    right: $space-4;
+    top: $space-4;
+    width: pixel-to-rem(30);
+  }
+
+  &__info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-s;
+    min-width: $min-width;
+    padding: $space-3 $space-4;
+  }
+
+  &__title {
+    font-size: $font-size-l;
+    margin-bottom: $space-2;
+  }
+
+  &__subtitle {
+    font-size: $font-size-m;
+    margin: $space;
+  }
+
+  &__characteristic {
+    padding-left: $space-4;
+  }
+
+  &__color-sample {
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    display: inline-block;
+    height: pixel-to-rem(10);
+    width: pixel-to-rem(10);
+  }
+
+  @include md {
+    animation: displayHorizontalCard 2s linear;
+    display: flex;
+    position: static;
+
+    &__close {
+      display: none;
+    }
+
+    &__info {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__text {
+      max-width: $max-width;
+    }
+
+    &__title {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+@keyframes displayHorizontalCard {
+  0% {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    max-width: 64rem;
+    opacity: 1;
+  }
+}
+
+@keyframes displayVerticalCard {
+  0% {
+    top: 100vh;
+  }
+}

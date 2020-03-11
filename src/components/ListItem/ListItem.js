@@ -4,9 +4,13 @@ import chevronIcon from "../../assets/icons/chevron.svg";
 
 import styles from "./ListItem.module.scss";
 
-function ListItem({ data, selectItemFn }) {
+function ListItem({ data, selectedItem, selectItemFn }) {
+  const classSelectedItem = selectedItem === data.id ? styles["list-item--selected"] : "";
   return (
-    <li className={styles["list-item"]} onClick={e => selectItemFn(data.id, e)}>
+    <li
+      className={`${styles["list-item"]} ${classSelectedItem}`}
+      onClick={e => selectItemFn(data.id, e)}
+    >
       <div className={styles["list-item__info-wrapper"]}>
         <img src={phoneIcon} className={styles["list-item__phone-icon"]} alt="phone-icon" />
         <div className={styles["list-item__text-wrapper"]}>

@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { List, Spinner } from "../index";
-import { isFetchingSelector } from "../../redux/selectors";
+import { Card, List, Spinner } from "../index";
+import { selectIsFetching } from "../../redux/selectors";
 import { fetchPhones } from "../../redux/actions";
 
 import "./App.scss";
 
 export function App() {
   const dispatch = useDispatch();
-  const isFetchingPhones = useSelector(isFetchingSelector);
+  const isFetchingPhones = useSelector(selectIsFetching);
 
   useEffect(() => {
     dispatch(fetchPhones());
@@ -23,7 +23,16 @@ export function App() {
           My Phone Catalogue
         </h1>
       </header>
-      <section className="app__container">{isFetchingPhones ? <Spinner /> : <List />}</section>
+      <section className="app__container">
+        {isFetchingPhones ? (
+          <Spinner />
+        ) : (
+          <div className="app__content">
+            <List />
+            <Card />
+          </div>
+        )}
+      </section>
     </div>
   );
 }

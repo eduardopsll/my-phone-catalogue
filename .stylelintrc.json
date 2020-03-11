@@ -7,7 +7,7 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["function", "return"]
+        "ignoreAtRules": ["function", "return", "include", "mixin"]
       }
     ]
   }

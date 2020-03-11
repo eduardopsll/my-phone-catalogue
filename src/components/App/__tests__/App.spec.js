@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { render } from "@testing-library/react";
 
 import { App } from "../App";
-import { render } from "@testing-library/react";
 
 const mockDispatch = jest.fn();
 jest.mock("react-redux");
@@ -11,6 +11,7 @@ useDispatch.mockImplementation(() => mockDispatch);
 useSelector.mockImplementation(jest.fn());
 jest.mock("../../List/List");
 jest.mock("../../Spinner/Spinner");
+jest.mock("../../Card/Card");
 
 describe("App", () => {
   beforeEach(() => {
@@ -43,9 +44,10 @@ describe("App", () => {
       useSelector.mockImplementation(selectorFn => selectorFn({ isFetchingPhones: false }));
     });
 
-    it("should render List component", () => {
+    it("should render List and Card components", () => {
       const { getByTestId } = render(<App />);
       expect(getByTestId("list")).toBeInTheDocument();
+      expect(getByTestId("card")).toBeInTheDocument();
     });
   });
 });

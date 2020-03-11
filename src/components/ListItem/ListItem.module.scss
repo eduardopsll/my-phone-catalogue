@@ -19,6 +19,10 @@
     box-shadow: 0 6px 4px -4px rgba($primary-color, 0.75);
   }
 
+  &--selected {
+    border: 2px solid $secondary-color;
+  }
+
   &__info-wrapper {
     align-items: center;
     display: flex;
