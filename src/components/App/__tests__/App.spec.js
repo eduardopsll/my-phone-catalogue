@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { render } from "@testing-library/react";
 
 import { App } from "../App";
+import { fetchPhones } from "../../../redux/actions";
 
 const mockDispatch = jest.fn();
 jest.mock("react-redux");
@@ -26,7 +27,7 @@ describe("App", () => {
   it("should dispatch action to fetch phone list", () => {
     const div = document.createElement("div");
     ReactDOM.render(<App />, div);
-    expect(mockDispatch).toBeCalled();
+    expect(mockDispatch).toHaveBeenCalledWith(fetchPhones());
   });
 
   describe("Fetching phones", () => {
