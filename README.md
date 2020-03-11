@@ -3,7 +3,7 @@ My Phone Catalogue
 It's a project based on a React application created with create-react-app and a server with and endpoint /phones to display a catalogue of phones.
 
   
-
+# React App
 ## Available Scripts
 
   ### `yarn`
@@ -66,6 +66,23 @@ To run all unit test of the React application.
 ###`yarn commit`
 To create a commit. This will run commitizen to create a formated commit message.
 
+### Docker scripts
+#### DEV
+####`yarn docker:build:dev`
+To   build the Docker image for development
+
+####`yarn docker:run:dev`
+To create an instance for the container and run it. 
+The app will be exposed in port 3001.
+
+#### PROD
+####`yarn docker:build:prod`
+To   build the Docker image for development
+
+####`yarn docker:run:prod`
+To create an instance for the container and run it. 
+The app will be exposed in port 80.
+
 ### Additional lint
 #### `yarn stylelint`
 
@@ -78,4 +95,17 @@ Before each commit prettier is being run on html and js files and stylelint for 
 #### pre-push
 Before each push all tests of the React app are run.
 
-  
+
+# Server - Phones API
+In the myServer directory, you can run to run the nodejs server:
+### `yarn`
+Run to install all dependencies
+
+In the project directory, you can run to run the react app:
+
+
+### `yarn start`
+Runs the server on the port 4000
+
+### `yarn test`
+To run tests

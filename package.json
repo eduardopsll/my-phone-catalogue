@@ -23,7 +23,11 @@
     "test:all": "yarn test --watchAll=false",
     "eject": "react-scripts eject",
     "stylelint": "stylelint ./**/**/*.scss",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "docker:build:dev": "docker build -t my-phone-catalogue:dev .",
+    "docker:run:dev": "docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm my-phone-catalogue:dev",
+    "docker:build:prod": "docker build -f Dockerfile-prod -t my-phone-catalogue:prod .",
+    "docker:run:prod": "docker run -it -p 80:80 --rm my-phone-catalogue:prod"
   },
   "husky": {
     "hooks": {
