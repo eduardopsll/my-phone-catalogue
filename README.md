@@ -63,23 +63,23 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   
 To run all unit test of the React application.
 
-###`yarn commit`
+### `yarn commit`
 To create a commit. This will run commitizen to create a formated commit message.
 
 ### Docker scripts
 #### DEV
-####`yarn docker:build:dev`
+#### `yarn docker:build:dev`
 To   build the Docker image for development
 
-####`yarn docker:run:dev`
+#### `yarn docker:run:dev`
 To create an instance for the container and run it. 
 The app will be exposed in port 3001.
 
 #### PROD
-####`yarn docker:build:prod`
+#### `yarn docker:build:prod`
 To   build the Docker image for development
 
-####`yarn docker:run:prod`
+#### `yarn docker:run:prod`
 To create an instance for the container and run it. 
 The app will be exposed in port 80.
 
