@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:all": "yarn test --watchAll=false",
+    "test:coverage": "yarn test:all --coverage",
     "eject": "react-scripts eject",
     "stylelint": "stylelint ./**/**/*.scss",
     "commit": "git-cz",
