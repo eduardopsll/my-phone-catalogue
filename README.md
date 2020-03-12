@@ -109,3 +109,8 @@ Runs the server on the port 4000
 
 ### `yarn test`
 To run tests
+
+## `Fake server`
+Include you would like to use the app without runing the server. 
+You can enable a mock response of the server by changing the property `USE_FAKE_BACKEND` in 
+the file `environment.js`
