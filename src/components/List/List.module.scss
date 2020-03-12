@@ -9,7 +9,10 @@
   padding: 0 $space-4;
 
   @include md {
-    border-right: 1px solid $secondary-color;
     min-width: $min-width;
+
+    &--selected {
+      border-right: 1px solid $secondary-color;
+    }
   }
 }

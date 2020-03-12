@@ -11,9 +11,9 @@ function List() {
   const list = useSelector(selectPhoneList);
   const selectedItem = useSelector(selectPhoneIdSelected);
   const dispatch = useDispatch();
-
+  const classSelectedItem = selectedItem !== null ? styles["list--selected"] : "";
   return (
-    <ul className={styles.list}>
+    <ul className={`${styles.list} ${classSelectedItem}`}>
       {list.map(item => (
         <ListItem
           key={item.id}
