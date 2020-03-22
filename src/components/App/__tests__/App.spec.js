@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM, { unmountComponentAtNode } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { render } from "@testing-library/react";
 
 import { App } from "../App";
 import { fetchPhones } from "../../../redux/actions";
+import { MemoryRouter } from "react-router-dom";
 
 const mockDispatch = jest.fn();
 jest.mock("react-redux");
@@ -14,18 +15,34 @@ jest.mock("../../List/List");
 jest.mock("../../Spinner/Spinner");
 jest.mock("../../Card/Card");
 
+let container = null;
 describe("App", () => {
   beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
     mockDispatch.mockClear();
+  });
+  afterEach(() => {
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
   });
 
   it("should render without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
+    ReactDOM.render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+      container
+    );
   });
 
   it("should dispatch action to fetch phone list", () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     expect(mockDispatch).toHaveBeenCalledWith(fetchPhones());
   });
 
@@ -44,8 +61,21 @@ describe("App", () => {
       useSelector.mockImplementation(selectorFn => selectorFn({ isFetchingPhones: false }));
     });
 
-    it("should render List and Card components", () => {
-      const { getByTestId } = render(<App />);
+    it("should render the list as there is not item selected", () => {
+      const { getByTestId } = render(
+        <MemoryRouter initialEntries={["/"]}>
+          <App />
+        </MemoryRouter>
+      );
+      expect(getByTestId("list")).toBeInTheDocument();
+    });
+
+    it("should render List and Card components with a item selected", () => {
+      const { getByTestId } = render(
+        <MemoryRouter initialEntries={["/1"]}>
+          <App />
+        </MemoryRouter>
+      );
       expect(getByTestId("list")).toBeInTheDocument();
       expect(getByTestId("card")).toBeInTheDocument();
     });

@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./Card.module.scss";
 import { selectPhoneSelected } from "../../redux/selectors";
 import closeIcon from "../../assets/icons/close.svg";
-import { resetPhoneSelected } from "../../redux/actions";
+import { resetPhoneSelected, setPhoneSelected } from "../../redux/actions";
+import { useParams } from "react-router-dom";
 
 function Card() {
   const phone = useSelector(selectPhoneSelected);
   const dispatch = useDispatch();
+  const id = +useParams().id;
   const styleColor = {
     backgroundColor: phone ? phone.color : ""
   };
 
-  function closeCard() {
+  const closeCard = () => {
     dispatch(resetPhoneSelected());
-  }
+  };
+
+  useEffect(() => {
+    if (!isNaN(id)) {
+      dispatch(setPhoneSelected(id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   if (!phone) {
     return null;
@@ -24,6 +33,7 @@ function Card() {
     <div className={styles.card}>
       <div className={styles.card__close}>
         <img
+          data-testid="closeCard"
           src={closeIcon}
           className={styles["card__close-icon"]}
           alt="close phone selected"

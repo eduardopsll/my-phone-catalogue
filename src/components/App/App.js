@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Route } from "react-router-dom";
 
 import { Card, List, Spinner } from "../index";
 import { selectIsFetching } from "../../redux/selectors";
@@ -29,7 +30,9 @@ export function App() {
         ) : (
           <div className="app__content">
             <List />
-            <Card />
+            <Route path="/:id">
+              <Card />
+            </Route>
           </div>
         )}
       </section>
