@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route } from "react-router-dom";
 
-import { Card, List, Spinner } from "../index";
+import { ErrorBoundary, List, Spinner } from "../index";
 import { selectIsFetching } from "../../redux/selectors";
 import { fetchPhones } from "../../redux/actions";
 
 import "./App.scss";
+
+const LazyCard = React.lazy(() => import("../Card/Card"));
 
 export function App() {
   const dispatch = useDispatch();
@@ -18,25 +20,29 @@ export function App() {
   }, []);
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 title="My phone Catalogue" className="app__title">
-          My Phone Catalogue
-        </h1>
-      </header>
-      <section className="app__container">
-        {isFetchingPhones ? (
-          <Spinner />
-        ) : (
-          <div className="app__content">
-            <List />
-            <Route path="/:id">
-              <Card />
-            </Route>
-          </div>
-        )}
-      </section>
-    </div>
+    <ErrorBoundary>
+      <div className="app">
+        <header className="app__header">
+          <h1 title="My phone Catalogue" className="app__title">
+            My Phone Catalogue
+          </h1>
+        </header>
+        <section className="app__container">
+          {isFetchingPhones ? (
+            <Spinner />
+          ) : (
+            <div className="app__content">
+              <List />
+              <Suspense fallback={<Spinner />}>
+                <Route path="/:id">
+                  <LazyCard />
+                </Route>
+              </Suspense>
+            </div>
+          )}
+        </section>
+      </div>
+    </ErrorBoundary>
   );
 }
 

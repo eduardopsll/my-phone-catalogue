@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM, { unmountComponentAtNode } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { render } from "@testing-library/react";
 
 import { App } from "../App";
 import { fetchPhones } from "../../../redux/actions";
 import { MemoryRouter } from "react-router-dom";
+import jestUtils from "../../../utils/jest.utils";
 
 const mockDispatch = jest.fn();
 jest.mock("react-redux");
@@ -14,6 +14,8 @@ useSelector.mockImplementation(jest.fn());
 jest.mock("../../List/List");
 jest.mock("../../Spinner/Spinner");
 jest.mock("../../Card/Card");
+
+jest.useFakeTimers();
 
 let container = null;
 describe("App", () => {
@@ -38,11 +40,13 @@ describe("App", () => {
   });
 
   it("should dispatch action to fetch phone list", () => {
-    render(
+    ReactDOM.render(
       <MemoryRouter>
         <App />
-      </MemoryRouter>
+      </MemoryRouter>,
+      container
     );
+    jestUtils.runAll();
     expect(mockDispatch).toHaveBeenCalledWith(fetchPhones());
   });
 
@@ -52,8 +56,13 @@ describe("App", () => {
     });
 
     it("should render Spinner component", () => {
-      const { getByTestId } = render(<App />);
-      expect(getByTestId("spinner")).toBeInTheDocument();
+      ReactDOM.render(
+        <MemoryRouter>
+          <App />
+        </MemoryRouter>,
+        container
+      );
+      expect(container.querySelector('[data-testid="spinner"]')).toBeTruthy();
     });
   });
   describe("Not fetching phones", () => {
@@ -62,22 +71,24 @@ describe("App", () => {
     });
 
     it("should render the list as there is not item selected", () => {
-      const { getByTestId } = render(
+      ReactDOM.render(
         <MemoryRouter initialEntries={["/"]}>
           <App />
-        </MemoryRouter>
+        </MemoryRouter>,
+        container
       );
-      expect(getByTestId("list")).toBeInTheDocument();
+      expect(container.querySelector('[data-testid="list"]')).toBeTruthy();
     });
 
-    it("should render List and Card components with a item selected", () => {
-      const { getByTestId } = render(
+    it("should render List and fallback of the lazyCard components with a item selected", () => {
+      ReactDOM.render(
         <MemoryRouter initialEntries={["/1"]}>
           <App />
-        </MemoryRouter>
+        </MemoryRouter>,
+        container
       );
-      expect(getByTestId("list")).toBeInTheDocument();
-      expect(getByTestId("card")).toBeInTheDocument();
+      expect(container.querySelector('[data-testid="list"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="spinner"]')).toBeTruthy();
     });
   });
 });

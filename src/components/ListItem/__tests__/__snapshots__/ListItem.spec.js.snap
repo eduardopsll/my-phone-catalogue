@@ -1,112 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListItem should add class selected when item is the selected one 1`] = `
-<li
-  class="list-item list-item--selected"
->
-  <div
-    class="list-item__info-wrapper"
+<li>
+  <a
+    class="list-item list-item--selected"
+    href="/0"
   >
-    <img
-      alt="phone-icon"
-      class="list-item__phone-icon"
-      src="phone.svg"
-    />
     <div
-      class="list-item__text-wrapper"
+      class="list-item__info-wrapper"
     >
-      iPhone 7
-      <span
-        class="list-item__text-subtitle"
+      <img
+        alt="phone-icon"
+        class="list-item__phone-icon"
+        src="phone.svg"
+      />
+      <div
+        class="list-item__text-wrapper"
       >
-        Apple
-      </span>
+        iPhone 7
+        <span
+          class="list-item__text-subtitle"
+        >
+          Apple
+        </span>
+      </div>
+      <div
+        class="list-item__price"
+      >
+        769
+        €
+      </div>
     </div>
-    <div
-      class="list-item__price"
-    >
-      769
-      €
-    </div>
-  </div>
-  <img
-    alt="chevron-icon"
-    class="list-item__chevron-icon"
-    src="chevron.svg"
-  />
+    <img
+      alt="chevron-icon"
+      class="list-item__chevron-icon"
+      src="chevron.svg"
+    />
+  </a>
 </li>
 `;
 
 exports[`ListItem should not add class selected when item is not the selected one 1`] = `
-<li
-  class="list-item "
->
-  <div
-    class="list-item__info-wrapper"
+<li>
+  <a
+    class="list-item "
+    href="/0"
   >
-    <img
-      alt="phone-icon"
-      class="list-item__phone-icon"
-      src="phone.svg"
-    />
     <div
-      class="list-item__text-wrapper"
+      class="list-item__info-wrapper"
     >
-      iPhone 7
-      <span
-        class="list-item__text-subtitle"
+      <img
+        alt="phone-icon"
+        class="list-item__phone-icon"
+        src="phone.svg"
+      />
+      <div
+        class="list-item__text-wrapper"
       >
-        Apple
-      </span>
+        iPhone 7
+        <span
+          class="list-item__text-subtitle"
+        >
+          Apple
+        </span>
+      </div>
+      <div
+        class="list-item__price"
+      >
+        769
+        €
+      </div>
     </div>
-    <div
-      class="list-item__price"
-    >
-      769
-      €
-    </div>
-  </div>
-  <img
-    alt="chevron-icon"
-    class="list-item__chevron-icon"
-    src="chevron.svg"
-  />
+    <img
+      alt="chevron-icon"
+      class="list-item__chevron-icon"
+      src="chevron.svg"
+    />
+  </a>
 </li>
 `;
 
 exports[`ListItem should not add class selected when there is no item selected 1`] = `
-<li
-  class="list-item "
->
-  <div
-    class="list-item__info-wrapper"
+<li>
+  <a
+    class="list-item "
+    href="/0"
   >
-    <img
-      alt="phone-icon"
-      class="list-item__phone-icon"
-      src="phone.svg"
-    />
     <div
-      class="list-item__text-wrapper"
+      class="list-item__info-wrapper"
     >
-      iPhone 7
-      <span
-        class="list-item__text-subtitle"
+      <img
+        alt="phone-icon"
+        class="list-item__phone-icon"
+        src="phone.svg"
+      />
+      <div
+        class="list-item__text-wrapper"
       >
-        Apple
-      </span>
+        iPhone 7
+        <span
+          class="list-item__text-subtitle"
+        >
+          Apple
+        </span>
+      </div>
+      <div
+        class="list-item__price"
+      >
+        769
+        €
+      </div>
     </div>
-    <div
-      class="list-item__price"
-    >
-      769
-      €
-    </div>
-  </div>
-  <img
-    alt="chevron-icon"
-    class="list-item__chevron-icon"
-    src="chevron.svg"
-  />
+    <img
+      alt="chevron-icon"
+      class="list-item__chevron-icon"
+      src="chevron.svg"
+    />
+  </a>
 </li>
 `;
