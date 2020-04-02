@@ -10,6 +10,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
@@ -63,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.1.0",
     "husky": "^4.2.3",

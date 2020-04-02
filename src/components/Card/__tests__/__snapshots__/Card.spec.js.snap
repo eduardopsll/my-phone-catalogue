@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Param id undefined should render an empty component if there is not item selected 1`] = `<div />`;
+
+exports[`Card Param id undefined should render the data of the item selected 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <div
+      class="card__close"
+    >
+      <img
+        alt="close phone selected"
+        class="card__close-icon"
+        data-testid="closeCard"
+        src="close.svg"
+      />
+    </div>
+    <div
+      class="card__info"
+    >
+      <img
+        alt="Galaxy S7 Samsung"
+        class="card__image"
+        src="/images/Galaxy_S7.png"
+      />
+      <div
+        class="card__text"
+      >
+        <div
+          class="characteristics"
+        >
+          <h1
+            class="card__title"
+          >
+            Galaxy S7
+          </h1>
+          <p
+            class="card__subtitle"
+          >
+            Samsung
+          </p>
+          <p
+            class="card__characteristic"
+          >
+            Screen: 
+            5,1 inch Quad-HD
+          </p>
+          <p
+            class="card__characteristic"
+          >
+            Processor: 
+            Snapdragon 820
+          </p>
+          <p
+            class="card__characteristic"
+          >
+            Ram: 
+            4
+          </p>
+          <p
+            class="card__characteristic"
+          >
+            Color: 
+            <span
+              class="card__color-sample"
+              style="background-color: grey;"
+            />
+             
+            grey
+          </p>
+        </div>
+        <p
+          class="description"
+        >
+          Introducing the smartphone your life can not do without, The Samsung Galaxy S7. Packed with features to keep you both productive and entertained, all in a sleek, slim design that fits comfortably in your hand or pocket.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
