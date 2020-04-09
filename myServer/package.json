@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node_modules/.bin/nodemon index.js --exec babel-node --"
+    "start": "nodemon index.js --exec babel-node --"
   },
   "author": "Eduardo Pardo San Llorente",
   "license": "ISC",
