@@ -66,23 +66,6 @@ To run all unit test of the React application.
 ### `yarn commit`
 To create a commit. This will run commitizen to create a formated commit message.
 
-### Docker scripts
-#### DEV
-#### `yarn docker:build:dev`
-To   build the Docker image for development
-
-#### `yarn docker:run:dev`
-To create an instance for the container and run it. 
-The app will be exposed in port 3001.
-
-#### PROD
-#### `yarn docker:build:prod`
-To   build the Docker image for development
-
-#### `yarn docker:run:prod`
-To create an instance for the container and run it. 
-The app will be exposed in port 80.
-
 ### Additional lint
 #### `yarn stylelint`
 
@@ -114,3 +97,36 @@ To run tests
 Include you would like to use the app without runing the server. 
 You can enable a mock response of the server by changing the property `USE_FAKE_BACKEND` in 
 the file `environment.js`
+
+### Docker scripts
+#### my-phone-catalogue DEV
+#### `yarn docker:build:dev`
+To build the Docker image for development
+
+#### `yarn docker:run:dev`
+To create an instance for the container and run it. 
+The app will be exposed in port 3001.
+
+#### my-phone-catalogue PROD
+#### `yarn docker:build:prod`
+To build the Docker image for development
+
+#### `yarn docker:run:prod`
+To create an instance for the container and run it. 
+The app will be exposed in port 80.
+
+#### my-phone-catalogue-server
+#### `yarn docker:build:server`
+To build the Docker image of the server
+
+#### `yarn docker:run:server`
+To create an instance for the container and run it. 
+The server will be exposed in port 4000.
+
+### Docker-compose DEV
+#### `yarn docker-compose:up`
+To build and start the services (my-phone-catalogue-dev and my-phone-catalogue-server)
+
+### Docker-compose PROD
+#### `yarn docker-compose:prod:up`
+To build and start the services (my-phone-catalogue-prod and my-phone-catalogue-server)
