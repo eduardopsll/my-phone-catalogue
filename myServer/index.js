@@ -1,12 +1,13 @@
 import express from "express";
-import cors from "cors";
+// import cors from "cors";
 import phones from "./phones.json";
 
 const app = express();
-app.use(cors());
+// app.use();
+console.log('another')
 
 app.get("/phones", (_, res) => {
-  res.status(200).json(phones);
+  res.status(200).json({});
 });
 
 const PORT = 4000;
